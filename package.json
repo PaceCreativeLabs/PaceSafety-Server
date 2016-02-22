@@ -13,8 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "latest",
     "body-parser": "latest",
+    "express": "latest",
+    "jade": "^1.11.0",
     "postmark": "latest",
     "twilio": "latest"
   }
