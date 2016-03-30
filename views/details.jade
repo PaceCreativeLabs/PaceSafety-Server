@@ -1,0 +1,80 @@
+doctype html
+html(lang="en")
+  head
+    title= "Detailed Report"
+    link(href='/dbstyle.css',rel='stylesheet',type='text/css')
+  body
+    
+
+
+
+        h1(align='center') "Detailed Report"
+
+        div
+          table
+              
+
+              tbody
+                  each val in document
+                    tr
+                      td Report ID
+                      td= val._id
+                    if val.report
+                    -var replist = val.report
+                    if replist.metadata
+                      - var vmd = replist.metadata
+                        if vmd.type
+                          -var ttype = vmd.type
+                           
+                    if replist.data
+                      - var vaa = replist.data
+                    tr 
+                      td Name
+                      if vaa.name
+                        td= vaa.name
+                    tr
+                      td Email Id
+                      if vaa.userEmail
+                        td= vaa.userEmail
+
+                    tr
+                      td Location
+                  
+                      if vaa.campus
+                        - var campuslocal = vaa.campus + " "+ vaa.building +" "+  "Floor:" + vaa.floor +" "+  "Room:" + vaa.room
+                        td= campuslocal
+                      else
+                        td= vaa.location
+
+                        
+                    tr
+                      td Date Of Incident
+                      if vaa.incident_date
+                        td= vaa.incident_date
+                  
+                    tr
+                      td Time Of Incident
+                      if vaa.incident_time
+                        td= vaa.incident_time
+                    
+                      
+                    tr
+                      td Details
+                      if vaa.details
+                        td= vaa.details
+                    tr
+                      td Subject Name
+                      if vaa.subject_name
+                        td= vaa.subject_name
+                    tr
+                      td Details about subject
+                      if vaa.subject_details
+                        td= vaa.subject_details
+                  
+                    tr
+                      td Platform
+                      td= ttype
+                    
+                    tr
+                      td Status
+                      td= val.type
